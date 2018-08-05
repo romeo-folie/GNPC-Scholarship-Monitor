@@ -1,0 +1,23 @@
+{
+  "name": "gnpc-scholarship-monitor",
+  "version": "1.0.0",
+  "description": "Monitors news on GNPC scholarship and notifies interested students",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romeo-folie/GNPC-Scholarsip-Monitor.git"
+  },
+  "author": "Harisu Inusah, Romeo Folie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romeo-folie/GNPC-Scholarsip-Monitor/issues"
+  },
+  "homepage": "https://github.com/romeo-folie/GNPC-Scholarsip-Monitor#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3"
+  }
+}
