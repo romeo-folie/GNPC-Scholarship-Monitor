@@ -1,3 +1,4 @@
+require('./config/config')
 const express = require('express')
 const bodyParser = require('body-parser')
 
@@ -27,3 +28,5 @@ app.post('/users', async(req, res) => {
 })
 
 app.listen(port, () => console.log(`Up and running on port ${port}`))
+
+module.exports = { app }
