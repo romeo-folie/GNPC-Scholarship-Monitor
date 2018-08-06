@@ -19,9 +19,13 @@
   "homepage": "https://github.com/romeo-folie/GNPC-Scholarsip-Monitor#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
+    "lodash": "^4.17.10",
     "mongodb": "^3.1.1",
     "mongoose": "^5.2.6",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
     "validator": "^10.5.0"
   },
   "devDependencies": {

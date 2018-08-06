@@ -67,7 +67,7 @@ describe('POST /users', () => {
   });
 
   it('should not create user if email in use', (done) => {
-    let name = "test uer"
+    let name = "test user"
     let email = "testuser@mail.com"
 
     request(app)
