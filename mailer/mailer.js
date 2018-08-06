@@ -1,19 +1,25 @@
+require('./../config/config')
 const nodemailer = require('nodemailer');
+const {
+  mongoose
+} = require('./../db/mongoose')
+const {
+  User
+} = require('./../model/user')
 
-//we're receiving an array from the database
-var testarray = [{name: "somethin",email:"romeofolie1@gmail.com"},{name:"something else",email:"ethelfolie@gmail.com"},{name:"kwasi", email:"romeofolie@yahoo.com"}]
-var mailList = testarray.map(x => x.email)
 
-
-const mailer = (recepientList) => {
+//Fetch the emails from the database and add them all to the mail list.
+const sendMail = async() => {
   var transporter = nodemailer.createTransport({
-   service: 'gmail',
-   auth: {
-          user: 'gnpcscholarshipapp@gmail.com',
-          pass: 'scholarshipapppass'
-      }
+    service: 'gmail',
+    auth: {
+      user: 'gnpcscholarshipapp@gmail.com',
+      pass: 'scholarshipapppass'
+    }
   });
 
+  const user = await User.find({})
+  let recepientList = user.map(x => x.email)
 
   const mailOptions = {
     from: 'Scholarship App',
@@ -22,13 +28,13 @@ const mailer = (recepientList) => {
     html: 'GNPC has released scholarships for all students'
   };
 
-  transporter.sendMail(mailOptions, function (err, info) {
-     if(err)
-       console.log(err)
-     else
-       console.log(info);
+  transporter.sendMail(mailOptions, function(err, info) {
+    if (err)
+      console.log(err)
   });
-
 }
 
-mailer(mailList)
+
+module.exports = {
+  sendMail
+}

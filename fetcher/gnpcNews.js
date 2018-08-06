@@ -1,12 +1,12 @@
 const request = require('request-promise')
 const cheerio = require('cheerio')
-const _ = require('lodash');
+const _ = require('lodash')
+const { sendMail } = require('./../mailer/mailer')
+
 
 var gnpcNews = "http://gnpcghana.com/news.html"
 
-//Put the request process in it's own function. Then call setInterval on it everytime we need it.
-
-setInterval(checkHeadlines, 5000)
+var recheck = setInterval(checkHeadlines, 5000)
 
 function checkHeadlines() {
   const options = {
@@ -34,6 +34,8 @@ function checkHeadlines() {
         //There's a new headline. Now let's check if it contains our keywords
         if (_.includes(headlines[0], "UNDERGRADUATE") && _.includes(headlines[0], "SCHOLARSHIP")) {
           //call function that sends mail to all users in the database
+          sendMail()
+          clearInterval(recheck)
           console.log("Congratulations motherfucker")
         }
         //If it doesn't contain any of our keywords
