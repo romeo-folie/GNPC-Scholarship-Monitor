@@ -1,7 +1,10 @@
 const request = require('request-promise')
 const cheerio = require('cheerio')
+const _ = require('lodash');
 
 var gnpcNews = "http://gnpcghana.com/news.html"
+
+//Put the request process in it's own function. Then call setInterval on it everytime we need it.
 
 const options = {
   uri: gnpcNews,
@@ -22,8 +25,8 @@ request(options)
       //we'll just chill, smoke some weed and check again in like a day
       console.log("Well it's the same old news. Pay your own fees motherfucker")
     }
-        //The real magic happens when the headline isn't what we have in our list
-        //we first check if the date side contains 18
+    //The real magic happens when the headline isn't what we have in our list
+    //we first check if the date side contains 18
     else {
       //There's a new headline. Now let's check if it contains our keywords
       if (_.includes(headlines[0], "UNDERGRADUATE") && _.includes(headlines[0], "SCHOLARSHIP")) {
@@ -36,5 +39,4 @@ request(options)
         console.log("Nigga, pay your own damn fees!")
       }
     }
-
-  });
+  }).catch(e => console.log(e))
