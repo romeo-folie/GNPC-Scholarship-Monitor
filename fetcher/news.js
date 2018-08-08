@@ -24,7 +24,7 @@ function checkHeadlines() {
         return $(x).text().trim()
       })
 
-      if (headlines[0] !== "21.07.18 - CALL FOR (LOCAL) POST GRADUATE SCHOLARSHIP APPLICATIONS : GNPC FOUNDATION" && (_.includes(headlines[0], "UNDERGRADUATE") && _.includes(headlines[0], "SCHOLARSHIP"))) {
+      if (headlines[0] !== "21.07.18 - CALL FOR (LOCAL) POST GRADUATE SCHOLARSHIP APPLICATIONS : GNPC FOUNDATION" && (_.includes(headlines[0], "UNDER GRADUATE") && _.includes(headlines[0], "SCHOLARSHIP"))) {
         sendMail()
         clearInterval(recheck)
       }
