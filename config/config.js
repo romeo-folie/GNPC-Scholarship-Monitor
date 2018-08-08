@@ -7,4 +7,6 @@ if (env === 'development' || env === 'test'){
   Object.keys(envConfig).forEach((key) => {
     process.env[key] = envConfig[key]
   })
+} else if (env === 'production'){
+  process.env.MONGODB_URI = process.env.MONGOLAB_URI
 }
