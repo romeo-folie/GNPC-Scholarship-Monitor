@@ -46,3 +46,5 @@ function checkHeadlines() {
       }
     }).catch(e => console.log(e))
 }
+
+module.exports = {checkHeadlines}
