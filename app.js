@@ -15,6 +15,7 @@ const port = process.env.PORT || 3000
 
 app.use(bodyParser.json())
 
+app.options('/users', cors())
 app.post('/users', cors(), async(req, res) => {
   try {
     const user = new User({
