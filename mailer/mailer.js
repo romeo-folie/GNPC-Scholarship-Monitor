@@ -24,8 +24,8 @@ const sendMail = async() => {
   const mailOptions = {
     from: 'Scholarship App',
     to: recepientList,
-    subject: 'Scholarships Are Out',
-    html: 'GNPC has released scholarships for all students'
+    subject: 'GNPC Scholarships',
+    html: 'GNPC has announced the call for Under Graduate Scholarship applications. Follow the link below for more information \nhttp://gnpcghana.com/news.html'
   };
 
   transporter.sendMail(mailOptions, function(err, info) {
