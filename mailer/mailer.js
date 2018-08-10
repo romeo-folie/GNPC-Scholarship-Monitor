@@ -13,8 +13,8 @@ const sendMail = async() => {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'gnpcscholarshipapp@gmail.com',
-      pass: 'scholarshipapppass'
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD
     }
   });
 
